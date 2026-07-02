@@ -99,37 +99,38 @@ def login():
 @app.route("/dashboard")
 def dashboard():
 
-    if "admin" not in session:
-        return redirect(url_for("login"))
+    try:
+        if "admin" not in session:
+            return redirect(url_for("login"))
 
-    conn = get_connection()
-    cur = conn.cursor()
+        conn = get_connection()
+        cur = conn.cursor()
 
-    # Total Employees
-    cur.execute("SELECT COUNT(*) FROM employees")
-    total_employees = cur.fetchone()[0]
+        cur.execute("SELECT COUNT(*) FROM employees")
+        total_employees = cur.fetchone()[0]
 
-    # Total Departments
-    cur.execute("SELECT COUNT(DISTINCT department) FROM employees")
-    total_departments = cur.fetchone()[0]
+        cur.execute("SELECT COUNT(DISTINCT department) FROM employees")
+        total_departments = cur.fetchone()[0]
 
-    # Total Payroll
-    cur.execute("SELECT IFNULL(SUM(salary),0) FROM employees")
-    total_salary = cur.fetchone()[0]
+        cur.execute("SELECT IFNULL(SUM(salary),0) FROM employees")
+        total_salary = cur.fetchone()[0]
 
-    # Average Salary
-    cur.execute("SELECT IFNULL(AVG(salary),0) FROM employees")
-    average_salary = round(cur.fetchone()[0], 2)
+        cur.execute("SELECT IFNULL(AVG(salary),0) FROM employees")
+        avg = cur.fetchone()[0]
+        average_salary = round(avg if avg else 0, 2)
 
-    conn.close()
+        conn.close()
 
-    return render_template(
-        "dashboard.html",
-        total_employees=total_employees,
-        total_departments=total_departments,
-        total_salary=total_salary,
-        average_salary=average_salary
-    )
+        return render_template(
+            "dashboard.html",
+            total_employees=total_employees,
+            total_departments=total_departments,
+            total_salary=total_salary,
+            average_salary=average_salary
+        )
+
+    except Exception as e:
+        return f"Dashboard Error: {e}"
 # ---------------- ADD EMPLOYEE ---------------- #
 
 @app.route("/add")
