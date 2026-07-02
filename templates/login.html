@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Management System</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background">
+
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <!-- Theme Button -->
+    <div class="theme-toggle">
+
+        <i class="fa-solid fa-moon"></i>
+
+    </div>
+
+    <div class="main-container">
+
+        <!-- Left Side -->
+
+        <div class="left">
+
+            <h1>Employee Management System</h1>
+
+            <p>
+                Manage employees with a modern HR platform built using
+                Python, Flask, SQLite, Pandas and NumPy.
+            </p>
+
+            <div class="feature-list">
+
+                <div>
+                    <i class="fa-solid fa-user-group"></i>
+                    Employee Management
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-chart-line"></i>
+                    Analytics Dashboard
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Secure Login
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-database"></i>
+                    SQLite Database
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Login Card -->
+
+        <div class="login-card">
+
+            <!-- Logo -->
+
+            <div class="logo">
+
+                <div class="logo-circle">
+
+                    <i class="fa-solid fa-user-tie"></i>
+
+                </div>
+
+            </div>
+
+            <h2>Welcome Back 👋</h2>
+
+            <p>Login to continue</p>
+
+            <form method="POST">
+
+    <div class="input-group">
+        <input type="text" id="username" name="username" required>
+        <label>Username</label>
+        <i class="fa-solid fa-user"></i>
+    </div>
+
+    <div class="input-group">
+        <input type="password" id="password" name="password" required>
+        <label>Password</label>
+        <i class="fa-solid fa-lock lock"></i>
+        <i class="fa-solid fa-eye eye" id="togglePassword"></i>
+    </div>
+    <div class="remember">
+
+    <label>
+        <input type="checkbox" name="remember">
+        Remember Me
+    </label>
+
+    <a href="#">Forgot Password?</a>
+
+</div>
+
+    <button type="submit" class="login-btn">
+        Login
+    </button>
+
+</form>
+            <div class="footer">
+
+                © 2026 Employee Management System
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</body>
+
+</html>
